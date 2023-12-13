@@ -4,11 +4,9 @@ package com.group1.citchecker.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import com.group1.citchecker.Entity.AttendanceEntity;
 import com.group1.citchecker.Repository.AttendanceRepository;
-import com.group1.citchecker.Repository.ClassRepository;
 
 @Service
 public class AttendanceService {
@@ -17,7 +15,7 @@ public class AttendanceService {
 	    private AttendanceRepository arepo;
 	    
 	    @Autowired
-	    public AttendanceService(AttendanceRepository arepo,ClassRepository crepo) {
+	    public AttendanceService(AttendanceRepository arepo) {
 	        this.arepo = arepo;
 	       
 	    }

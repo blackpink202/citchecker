@@ -2,15 +2,12 @@ package com.group1.citchecker.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -28,12 +25,17 @@ public class StudentEntity {
 
     @Column(name = "lastname")
     private String lname;
+    
+    private String username;
 
     private String email;
 
     private String password;
 
     private String program;
+    
+    // 1(Male) 0(Female)
+    private int gender;
     
     @ManyToMany
     private List<ClassEntity> classes;
@@ -43,14 +45,16 @@ public class StudentEntity {
         this.classes = new ArrayList<>();
     }
 
-    public StudentEntity(int sid, String fname, String lname, String email, String password, String program) {
+    public StudentEntity(int sid, String fname, String lname, String email, String password, String program, int gender, String username) {
         super();
         this.sid = sid;
         this.fname = fname;
         this.lname = lname;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.program = program;
+        this.gender = gender;
         this.classes = new ArrayList<>();
     }
     
@@ -97,6 +101,14 @@ public class StudentEntity {
     public void setLname(String lname) {
         this.lname = lname;
     }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getEmail() {
         return email;
@@ -120,6 +132,14 @@ public class StudentEntity {
 
     public void setProgram(String program) {
         this.program = program;
-    }	
+    }
+    
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
 
 }

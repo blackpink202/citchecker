@@ -2,6 +2,7 @@ package com.group1.citchecker.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "tblattendance")
@@ -16,10 +17,14 @@ public class AttendanceEntity {
     @JoinColumn(name = "class_id")
     private ClassEntity classes;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    private StudentEntity students;
-
+    @ManyToMany
+    @JoinTable(
+            name = "attendance_student",
+            joinColumns = @JoinColumn(name = "attendance_id")
+    )
+    private List<StudentEntity> students;
+    
+    
     @Column(name = "Date")
     private LocalDate date; // Use LocalDate for date representation
 
@@ -52,11 +57,11 @@ public class AttendanceEntity {
         this.classes = classes;
     }
 
-    public StudentEntity getStudents() {
+    public List<StudentEntity> getStudents() {
         return students;
     }
 
-    public void setStudents(StudentEntity students) {
+    public void setStudents(List<StudentEntity> students) {
         this.students = students;
     }
 

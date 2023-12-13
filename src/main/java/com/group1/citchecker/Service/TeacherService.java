@@ -46,9 +46,11 @@ public class TeacherService {
             // Update the record
             teacher.setFname(newTeacherDetails.getFname());
             teacher.setLname(newTeacherDetails.getLname());
+            teacher.setUsername(newTeacherDetails.getUsername());
             teacher.setEmail(newTeacherDetails.getEmail());
             teacher.setPassword(newTeacherDetails.getPassword());
             teacher.setDepartment(newTeacherDetails.getDepartment());
+            teacher.setGender(newTeacherDetails.getGender());
             // Update other fields as needed
 
         } finally {

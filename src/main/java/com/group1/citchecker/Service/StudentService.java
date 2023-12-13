@@ -49,9 +49,11 @@ public class StudentService {
             // update the record
             student.setFname(newStudentDetails.getFname());
             student.setLname(newStudentDetails.getLname());
+            student.setUsername(newStudentDetails.getUsername());
             student.setEmail(newStudentDetails.getEmail());
             student.setPassword(newStudentDetails.getPassword());
             student.setProgram(newStudentDetails.getProgram());
+            student.setGender(newStudentDetails.getGender());
         } catch (NoSuchElementException ex) {
             throw new NoSuchElementException("Student " + sid + " does not exist!");
         } finally {

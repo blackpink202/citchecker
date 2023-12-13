@@ -13,7 +13,4 @@ public interface AttendanceRepository extends JpaRepository <AttendanceEntity, I
 
 	List<AttendanceEntity> findByStudents_Sid(int sid);
 
-
-	
-
 }

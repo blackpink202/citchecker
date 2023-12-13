@@ -18,10 +18,17 @@ public class TeacherEntity {
 
     @Column(name = "lastname")
     private String lname;
-
+    
+    private String username;
+    
     private String email;
+    
     private String password;
+    
     private String department;
+    
+    // 1(Male) 0(Female)
+    private int gender;
 
     @OneToMany
     private List<ClassEntity> classes;
@@ -31,14 +38,16 @@ public class TeacherEntity {
         this.classes = new ArrayList<>();
     }
 
-    public TeacherEntity(int tid, String fname, String lname, String email, String password, String department) {
+    public TeacherEntity(int tid, String fname, String lname,String username, String email, String password, String department, int gender) {
         super();
         this.tid = tid;
         this.fname = fname;
         this.lname = lname;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.department = department;
+        this.gender = gender;
         this.classes = new ArrayList<>();
     }
 
@@ -88,6 +97,14 @@ public class TeacherEntity {
     public void setLname(String lname) {
         this.lname = lname;
     }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getEmail() {
         return email;
@@ -111,5 +128,13 @@ public class TeacherEntity {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+    
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 }
